@@ -126,6 +126,7 @@ class HarModel:
 
     def save(self):
         self.saver.save(self.sess, self.checkpoint_path)
+        mlflow.log_artifacts(self.checkpoint_path)
 
     def restore(self):
         self.saver.restore(self.sess, self.checkpoint_path)
